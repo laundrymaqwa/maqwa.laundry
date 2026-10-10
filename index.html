@@ -8,7 +8,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TGCPHV5J');</script>
 <!-- End Google Tag Manager -->
-</script>  <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MAQWA LAUNDRY - Your Smart Laundry Solution</title>
   <meta name="description" content="Layanan laundry profesional, cepat, bersih, wangi, dan terjangkau dengan layanan antar jemput. Pelayanan cuci kiloan, satuan, bed cover, hingga sepatu.">
@@ -459,7 +459,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
             <div>
               <h4 class="font-bold text-gray-900">Alamat Outlet</h4>
-              <p class="text-xs text-gray-500 mt-0.5">[Placeholder Alamat: Jalan Elang Sakti, Gg. Masjid Pekanbaru, Riau, Indonesia - Dekat Area Kampus]</p>
+              <p class="text-xs text-gray-500 mt-0.5">Jalan Elang Sakti, Gg. Masjid Pekanbaru, Riau, Indonesia - Dekat Area Kampus</p>
             </div>
           </div>
 
@@ -469,7 +469,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
             <div>
               <h4 class="font-bold text-gray-900">Jam Operasional</h4>
-              <p class="text-xs text-gray-500 mt-0.5">[Placeholder Operasional: Setiap Hari (07.00 - 22.00 WIB)]</p>
+              <p class="text-xs text-gray-500 mt-0.5">Setiap Hari (07.00 - 22.00 WIB)</p>
             </div>
           </div>
 
@@ -485,11 +485,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </div>
 
-      <!-- Google Maps Placeholder Container -->
-      <div class="w-full h-80 bg-purple-100/70 border border-purple-200 rounded-3xl flex flex-col items-center justify-center text-brand-darkPurple space-y-2 p-6 text-center shadow-inner">
-        <i class="ri-map-2-line text-5xl text-brand-purple"></i>
-        <span class="font-bold text-sm">[ Google Maps Location Placeholder ]</span>
-        <span class="text-xs text-gray-500">Peta area penjemputan Maqwa Laundry Pekanbaru</span>
+      <!-- Google Maps Live Embed -->
+      <div class="w-full h-80 rounded-3xl overflow-hidden border border-purple-200 shadow-sm">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.684178430487!2d101.3786306!3d0.4698340999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5a9ea8731a725%3A0xa8c69af0e91d2e3b!2sMaqwa%20laundry!5e0!3m2!1sen!2sid!4v1791628898866!5m2!1sen!2sid" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
       </div>
     </div>
   </section>
@@ -534,66 +540,286 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </footer>
 
-  <div id="order-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-4 relative shadow-2xl animate-float" style="animation-duration: 0s;">
+  <!-- Modal Order WhatsApp -->
+  <div id="order-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4 transition-opacity duration-300">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-purple-100 transform transition-all scale-95 opacity-0 modal-content">
       
-      <button onclick="closeOrderModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100 transition">
-        <i class="ri-close-line text-2xl"></i>
+      <!-- Close Button -->
+      <button onclick="closeOrderModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 w-9 h-9 rounded-full flex items-center justify-center transition-colors" aria-label="Tutup Modal">
+        <i class="ri-close-line text-xl"></i>
       </button>
 
-      <div class="text-left">
-        <h3 class="text-xl font-extrabold text-gray-900">Form Pemesanan Laundry</h3>
-        <p class="text-xs text-gray-500 mt-1">Lengkapi data berikut untuk melanjutkan ke WhatsApp.</p>
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-2xl bg-purple-100 text-brand-purple flex items-center justify-center text-xl font-bold">
+          <i class="ri-whatsapp-line"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-extrabold text-gray-900">Form Pemesanan WA</h3>
+          <p class="text-xs text-gray-500">Lengkapi data untuk terhubung langsung ke WhatsApp</p>
+        </div>
       </div>
 
-      <form id="wa-form" onsubmit="sendWhatsApp(event)" class="space-y-3.5 text-sm text-left">
+      <form id="whatsapp-form" onsubmit="sendToWhatsApp(event)" class="space-y-4 text-left">
         <div>
-          <label class="block font-semibold text-xs text-gray-700 mb-1">Nama Lengkap *</label>
-          <input type="text" id="form-name" required placeholder="Contoh: Budi Santoso" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs focus:outline-none focus:border-brand-purple">
+          <label class="block text-xs font-bold text-gray-700 mb-1.5 uppercase tracking-wider">Nama Lengkap</label>
+          <input type="text" id="order-name" required placeholder="Contoh: Budi Santoso" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple">
         </div>
 
         <div>
-          <label class="block font-semibold text-xs text-gray-700 mb-1">Alamat Penjemputan *</label>
-          <textarea id="form-address" required placeholder="Contoh: Jl. Kampus No. 12, Kos Mawar Room 04" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs focus:outline-none focus:border-brand-purple h-16 resize-none"></textarea>
+          <label class="block text-xs font-bold text-gray-700 mb-1.5 uppercase tracking-wider">Nomor WhatsApp</label>
+          <input type="tel" id="order-phone" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple">
         </div>
 
         <div>
-          <label class="block font-semibold text-xs text-gray-700 mb-1">Jenis Layanan Laundry</label>
-          <select id="form-service" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs focus:outline-none focus:border-brand-purple">
-            <option value="Cuci + Gosok">Cuci + Gosok</option>
-            <option value="Cuci + Lipat">Cuci + Lipat</option>
-            <option value="Gosok Saja">Gosok Saja</option>
-            <option value="Bed Cover / Sprei">Bed Cover / Sprei</option>
-            <option value="Sepatu / Boneka">Sepatu / Boneka</option>
-            <option value="Lainnya">Lainnya</option>
+          <label class="block text-xs font-bold text-gray-700 mb-1.5 uppercase tracking-wider">Pilih Layanan</label>
+          <select id="order-service" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-purple">
+            <option value="Cuci + Gosok (Kiloan)">Cuci + Gosok (Kiloan)</option>
+            <option value="Cuci + Lipat (Kiloan)">Cuci + Lipat (Kiloan)</option>
+            <option value="Gosok Saja (Kiloan)">Gosok Saja (Kiloan)</option>
+            <option value="Cuci Satuan (Bed Cover / Sepatu / Selimut)">Cuci Satuan (Bed Cover / Sepatu / dll)</option>
           </select>
         </div>
 
         <div>
-          <label class="block font-semibold text-xs text-gray-700 mb-1">Perkiraan Berat / Jumlah</label>
-          <input type="text" id="form-weight" placeholder="Contoh: 5 kg / 1 Bed Cover" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs focus:outline-none focus:border-brand-purple">
+          <label class="block text-xs font-bold text-gray-700 mb-1.5 uppercase tracking-wider">Alamat / Lokasi Penjemputan</label>
+          <textarea id="order-address" rows="3" required placeholder="Masukkan alamat lengkap atau nama kos/perumahan..." class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple"></textarea>
         </div>
 
         <div>
-          <label class="block font-semibold text-xs text-gray-700 mb-1">Metode Pengiriman</label>
-          <select id="form-method" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs focus:outline-none focus:border-brand-purple">
-            <option value="Jemput ke Lokasi">Jemput ke Lokasi Saya</option>
-            <option value="Antar Sendiri ke Outlet">Saya Antar Sendiri ke Outlet</option>
-          </select>
+          <label class="block text-xs font-bold text-gray-700 mb-1.5 uppercase tracking-wider">Catatan Tambahan (Opsional)</label>
+          <input type="text" id="order-notes" placeholder="Contoh: Pakai promo MAQWABARU / Jemput jam 2 siang" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple">
         </div>
 
-        <button type="submit" class="w-full py-3.5 bg-brand-purple hover:bg-brand-darkPurple text-white font-bold rounded-2xl shadow-md shadow-purple-200 transition-all flex items-center justify-center gap-2 mt-2">
+        <button type="submit" class="w-full py-4 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold text-sm shadow-lg shadow-green-200 transition-all flex items-center justify-center gap-2 mt-2">
           <i class="ri-whatsapp-line text-xl"></i> Kirim Pesanan via WhatsApp
         </button>
       </form>
     </div>
   </div>
 
-  <!-- External Script -->
-  <script src="script.js"></script>
+  <!-- JavaScript Logic -->
+  <script>
+    const services = [
+      { title: 'Cuci + Gosok', price: 'Rp 5.000 / kg', desc: 'Pakaian dicuci bersih, wangi, dan disetrika rapi siap pakai.', icon: 'ri-t-shirt-line' },
+      { title: 'Cuci + Lipat', price: 'Rp 3.500 / kg', desc: 'Solusi praktis dan hemat untuk pakaian sehari-hari yang sudah rapi dilipat.', icon: 'ri-file-reduce-line' },
+      { title: 'Gosok Saja', price: 'Rp 3.500 / kg', desc: 'Layanan setrika rapi wangi bagi Anda yang sudah mencuci sendiri.', icon: 'ri-hand-sanitizer-line' },
+      { title: 'Cuci Satuan', price: 'Mulai Rp 10.000', desc: 'Perawatan khusus untuk kemeja, jas, gaun, dan pakaian berbahan sensitif.', icon: 'ri-shirt-line' },
+      { title: 'Bed Cover & Sprei', price: 'Mulai Rp 15.000', desc: 'Pencucian higienis perlengkapan tidur bebas debu dan tungau.', icon: 'ri-hotel-bed-line' },
+      { title: 'Cuci Sepatu & Tas', price: 'Mulai Rp 20.000', desc: 'Deep cleaning sepatu & tas favorit Anda hingga nampak seperti baru kembali.', icon: 'ri-footprint-line' }
+    ];
+
+    const priceList = [
+      { service: 'Cuci + Gosok (Kiloan)', price: 'Rp 5.000 / kg', time: '1-2 Hari' },
+      { service: 'Cuci + Lipat (Kiloan)', price: 'Rp 3.500 / kg', time: '1-2 Hari' },
+      { service: 'Gosok Saja (Kiloan)', price: 'Rp 3.500 / kg', time: '1 Hari' },
+      { service: 'Bed Cover Small / Medium', price: 'Rp 15.000 - Rp 20.000 / pcs', time: '1-2 Hari' },
+      { service: 'Bed Cover Large / King', price: 'Rp 25.000 - Rp 30.000 / pcs', time: '1-2 Hari' },
+      { service: 'Cuci Sepatu (Sneakers/Formal)', price: 'Rp 20.000 - Rp 35.000 / pasang', time: '2 Hari' }
+    ];
+
+    const testimonials = [
+      { name: 'Rian Pratama', role: 'Mahasiswa UNRI', text: 'Sangat terbantu sama Maqwa Laundry! Antar jemputnya cepat, wangi pakaian tahan lama, dan harganya pas banget buat kantong mahasiswa.', rating: 5 },
+      { name: 'Siti Rahmawati', role: 'Ibu Rumah Tangga', text: 'Bed cover dan selimut keluarga selalu dicuci di sini. Hasilnya sangat bersih, harum, dan proses penjemputan sangat responsif.', rating: 5 },
+      { name: 'Dedi Kurniawan', role: 'Karyawan Swasta', text: 'Layanan setrika saja sangat membantu saya yang sibuk kerja. Lipatannya rapi dan pakaian selalu siap pakai untuk kerja.', rating: 5 }
+    ];
+
+    const faqs = [
+      { q: 'Berapa minimal berat untuk layanan cuci kiloan?', a: 'Minimal penimbangan untuk layanan laundry kiloan adalah 3 kg.' },
+      { q: 'Apakah ada fasilitas antar jemput gratis?', a: 'Ya, kami menyediakan fasilitas antar jemput untuk area Pekanbaru sekitarnya dengan syarat & ketentuan jarak tertentu.' },
+      { q: 'Berapa lama proses pengerjaan laundry?', a: 'Proses pengerjaan reguler membutuhkan waktu 1-2 hari. Tersedia juga layanan express sesuai permintaan.' },
+      { q: 'Bagaimana cara menggunakan kode promo diskon 20%?', a: 'Cukup masukkan kode promo MAQWABARU pada kolom catatan saat memesan via WhatsApp.' }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const servicesContainer = document.getElementById('services-container');
+      if (servicesContainer) {
+        servicesContainer.innerHTML = services.map(s => `
+          <div class="p-6 rounded-3xl bg-white border border-purple-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-purple-100 text-brand-purple flex items-center justify-center text-2xl font-bold mb-4">
+                <i class="${s.icon}"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">${s.title}</h3>
+              <p class="text-xs text-gray-500 leading-relaxed mb-4">${s.desc}</p>
+            </div>
+            <div class="pt-4 border-t border-purple-50 flex items-center justify-between">
+              <span class="text-sm font-extrabold text-brand-purple">${s.price}</span>
+              <button onclick="openOrderModal('${s.title}')" class="text-xs font-bold text-gray-700 hover:text-brand-purple flex items-center gap-1">
+                Pesan <i class="ri-arrow-right-line"></i>
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const priceBody = document.getElementById('price-table-body');
+      if (priceBody) {
+        priceBody.innerHTML = priceList.map(p => `
+          <tr class="hover:bg-purple-50/50 transition-colors">
+            <td class="py-4 px-6 font-semibold text-gray-800">${p.service}</td>
+            <td class="py-4 px-6 font-bold text-brand-purple">${p.price}</td>
+            <td class="py-4 px-6 text-gray-500 text-xs">${p.time}</td>
+            <td class="py-4 px-6 text-right">
+              <button onclick="openOrderModal('${p.service}')" class="px-4 py-1.5 rounded-full bg-purple-100 hover:bg-brand-purple hover:text-white text-brand-darkPurple font-bold text-xs transition-colors">
+                Pesan
+              </button>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      const testimonialsContainer = document.getElementById('testimonials-container');
+      if (testimonialsContainer) {
+        testimonialsContainer.innerHTML = testimonials.map(t => `
+          <div class="p-6 bg-white rounded-3xl border border-purple-100 shadow-sm flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex text-amber-400 text-sm">
+                ${'<i class="ri-star-fill"></i>'.repeat(t.rating)}
+              </div>
+              <p class="text-xs text-gray-600 leading-relaxed italic">"${t.text}"</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-brand-purple text-white font-bold text-xs flex items-center justify-center">
+                ${t.name.charAt(0)}
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-gray-900">${t.name}</h4>
+                <p class="text-[11px] text-gray-400">${t.role}</p>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const faqContainer = document.getElementById('faq-container');
+      if (faqContainer) {
+        faqContainer.innerHTML = faqs.map((f, i) => `
+          <div class="border border-purple-100 rounded-2xl overflow-hidden bg-white shadow-sm">
+            <button onclick="toggleFaq(${i})" class="w-full text-left p-5 font-bold text-sm text-gray-900 flex justify-between items-center focus:outline-none">
+              <span>${f.q}</span>
+              <i id="faq-icon-${i}" class="ri-add-line text-lg text-brand-purple transition-transform duration-200"></i>
+            </button>
+            <div id="faq-answer-${i}" class="hidden px-5 pb-5 text-xs text-gray-600 leading-relaxed border-t border-purple-50 pt-3">
+              ${f.a}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const calcService = document.getElementById('calc-service');
+      const calcWeight = document.getElementById('calc-weight');
+      if (calcService && calcWeight) {
+        calcService.addEventListener('change', calculateTotal);
+        calcWeight.addEventListener('input', calculateTotal);
+      }
+
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+    });
+
+    function calculateTotal() {
+      const pricePerKg = parseInt(document.getElementById('calc-service').value) || 0;
+      const weight = parseFloat(document.getElementById('calc-weight').value) || 0;
+      const total = pricePerKg * weight;
+      
+      document.getElementById('calc-result').innerText = 'Rp ' + total.toLocaleString('id-ID');
+    }
+
+    function toggleFaq(index) {
+      const ans = document.getElementById(`faq-answer-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.classList.replace('ri-add-line', 'ri-subtract-line');
+      } else {
+        ans.classList.add('hidden');
+        icon.classList.replace('ri-subtract-line', 'ri-add-line');
+      }
+    }
+
+    function openOrderModal(selectedService = '') {
+      const modal = document.getElementById('order-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      
+      if (selectedService) {
+        const select = document.getElementById('order-service');
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.toLowerCase().includes(selectedService.toLowerCase())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+
+    function closeOrderModal() {
+      const modal = document.getElementById('order-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }, 200);
+    }
+
+    function orderWithCalculation() {
+      const serviceSelect = document.getElementById('calc-service');
+      const serviceText = serviceSelect.options[serviceSelect.selectedIndex].text;
+      const weight = document.getElementById('calc-weight').value;
+      const total = document.getElementById('calc-result').innerText;
+
+      openOrderModal();
+      document.getElementById('order-notes').value = `Estimasi Kalkulator: ${serviceText} (${weight} kg) = ${total}`;
+    }
+
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('order-name').value;
+      const phone = document.getElementById('order-phone').value;
+      const service = document.getElementById('order-service').value;
+      const address = document.getElementById('order-address').value;
+      const notes = document.getElementById('order-notes').value;
+
+      let message = `Halo Maqwa Laundry, saya ingin memesan layanan laundry:\n\n` +
+                    `*Nama:* ${name}\n` +
+                    `*No. HP/WA Pelanggan:* ${phone}\n` +
+                    `*Layanan:* ${service}\n` +
+                    `*Alamat Penjemputan:* ${address}\n`;
+
+      if (notes) {
+        message += `*Catatan Tambahan:* ${notes}\n`;
+      }
+
+      message += `\nMohon konfirmasi pesanan dan penjemputannya. Terima kasih!`;
+
+      const text = encodeURIComponent(message);
+      window.open(`https://wa.me/6282364392030?text=${text}`, '_blank');
+      closeOrderModal();
+    }
+  </script>
 </body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGCPHV5J"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 </html>

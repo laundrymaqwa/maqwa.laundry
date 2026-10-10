@@ -285,7 +285,7 @@ window.closeOrderModal = () => {
 /* Submit WhatsApp Form */
 window.sendWhatsApp = (e) => {
   e.preventDefault();
-  const phone = "08xxxxxxxxxx"; // Placeholder Number
+  const phone = "62864392030"; // Placeholder Number
   const name = document.getElementById('form-name').value;
   const address = document.getElementById('form-address').value;
   const service = document.getElementById('form-service').value;
@@ -294,6 +294,6 @@ window.sendWhatsApp = (e) => {
 
   const text = `Halo Maqwa Laundry.%0ASaya ingin memesan layanan laundry.%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*Alamat:* ${encodeURIComponent(address)}%0A*Jenis Laundry:* ${encodeURIComponent(service)}%0A*Berat/Jumlah:* ${encodeURIComponent(weight)}%0A*Metode:* ${encodeURIComponent(method)}%0A%0AMohon informasi lebih lanjut.%0ATerima kasih.`;
 
-  window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+  window.open(`https://wa.me/6282364392030?text=${text}`, '_blank');
   closeOrderModal();
 };
